@@ -1,0 +1,113 @@
+#progressb {
+    top: 0;
+    position: fixed;
+    background: #c00707;
+    height: 5px;
+    width: 0;
+    transition: width 0.2s ease-in-out;
+}
+
+h1 {
+    color: #333;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form {
+    background: transparent;
+    color: #ffffff;
+    position: relative;
+    border: 1px solid #FFF;
+
+
+    transition: transform .1s ease-in-out;
+    border-radius: 5px;
+    padding: 60px;
+}
+
+#form.close {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: .8s ease-in-out;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0);
+}
+
+.next {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 40px;
+    color: #c00707;
+    float: right;
+    cursor: pointer;
+}
+
+.next:hover {
+    color: #333;
+}
+
+.wrong .next {
+    color: #c00707;
+}
+
+.close .next {
+    color: #fff;
+}
+
+#container {
+    position: relative;
+    opacity: 0;
+    width: 350px;
+
+    transition: opacity .3s ease-in-out;
+
+}
+
+#container input {
+    width: 100%;
+    padding: 0 5px;
+    border: none;
+    font-size: 20px;
+
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+
+}
+
+#placeholder {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+
+    padding: 0 5px;
+    transition: .2s ease-in-out;
+}
+
+#container input:valid+#placeholder {
+    top: -25px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #fff;
+}
+
+#bottomline {
+    position: absolute;
+    border-bottom: 2px solid #ff3d3d;
+    padding: 3px 0;
+    width: 0;
+    left: 5px;
+    transition: width .6s ease-in-out;
+}
+
+.wrong #bottomline {
+    border-color: #ff2d26;
+}
