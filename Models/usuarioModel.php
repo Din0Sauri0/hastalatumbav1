@@ -20,7 +20,7 @@
                 $query->bindParam(":descripcion", $descripcion);
                 $query->bindParam(":email", $email);
                 $query->bindParam(":fecha_nacimiento", $fecha_nacimiento);
-                $query->bindParam(':passwrd', $passwrd);
+                $query->bindParam(':passwrd', password_hash($passwrd, PASSWORD_DEFAULT));
                 return ($query->execute()) ? true : false;
             }catch(PDOException $err){
                 return 'Error: '.$err->getMessage();  

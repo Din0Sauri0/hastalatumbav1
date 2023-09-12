@@ -3,15 +3,22 @@
         <div class="row">
             <div class="col-12">
                 <div class="sign__content">
-                    <?php
-                        if(!empty($_SESSION['success'])){
-                            echo $_SESSION['success'];
-                        }
-                    ?>
+                    
                     <!-- authorization form -->
                     <form action="#" class="sign__form">
 
                         <i class="fas fa-sign-in-alt sign__logo"></i>
+                        <?php
+                            if(!empty($_SESSION['success'])){
+                        ?>
+                            <div class="sign__group bg-success p-3 rounded-4 text-center">
+                                <strong>
+                        <?php
+                                echo $_SESSION['success'];
+                            }
+                        ?>
+                                </strong>
+                            </div>
 
                         <div class="sign__group">
                             <input type="text" class="sign__input" placeholder="Email">
