@@ -1,4 +1,7 @@
-<?php include('includes/variables_ingreso.php') ?>
+<?php 
+session_start();
+include('includes/variables_ingreso.php');
+?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="es">

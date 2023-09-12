@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="sign__content">
                     <?php
-                        if(!empty($SESSION['error'])){
-                            echo "<div>Error</div>";
+                        if(!empty($_SESSION['success'])){
+                            echo $_SESSION['success'];
                         }
                     ?>
                     <!-- authorization form -->
