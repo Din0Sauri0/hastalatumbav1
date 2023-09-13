@@ -8,7 +8,7 @@ class Helpers
         $conn = new DB();
         $this->PDO = $conn->conectar();
     }
-    public function validateRegisterForm($email, $password, $repassword, $genero, $fecha_nacimiento)
+    public function validateRegisterForm($email, $password, $repassword, $genero, $alias, $nombre, $fecha_nacimiento)
     {
         $fecha_actual = date("Y-m-d");
         $fecha_nacimiento = new DateTime($fecha_nacimiento);
@@ -19,6 +19,18 @@ class Helpers
         $query->bindParam(":email", $email);
         $query->execute();
         $res = $query->fetch(PDO::FETCH_ASSOC);
+        if(strlen($email) == 0){
+            $messageError['email'] = 'Este campo es obligatorio';
+        }
+        if(strlen($password) == 0){
+            $messageError['password'] = 'Este campo es obligatorio';
+        }
+        if(strlen($alias) == 0){
+            $messageError['alias'] = 'Este campo es obligatorio';
+        }
+        if(strlen($nombre) == 0){
+            $messageError['nombre'] = 'Este campo es obligatorio';
+        }
         if($res){
             $messageError['email'] = "El email ya esta en uso.";
         }
@@ -39,5 +51,22 @@ class Helpers
         }else{
             return true;
         }
+    }
+    public function validateLogin($email, $passwrd){
+        if(strlen($email) == 0){
+            $messageError['email'] = 'Este campo es obligatorio';
+        }
+        if(strlen($passwrd) == 0){
+            $messageError['passwrd'] = 'Este campo es obligatorio';
+        }
+        if(strlen($passwrd) > 12 || strlen($passwrd) < 8){
+            $messageError['password'] = 'La contraseña debe tener entre 8 y 12 caracteres.';
+        }
+        if(count($messageError) >= 1){
+            return $messageError;
+        }else{
+            return true;
+        }
+        
     }
 }

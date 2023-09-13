@@ -10,7 +10,7 @@
             $this->helper = new Helpers();
         }
         public function create_user($nombre, $alias, $email, $genero, $descripcion, $fecha_nacimiento, $passwrd, $repasswrd){
-            $validation = $this->helper->validateRegisterForm($email, $passwrd, $repasswrd, $genero, $fecha_nacimiento);
+            $validation = $this->helper->validateRegisterForm($email, $passwrd, $repasswrd, $genero, $alias, $nombre, $fecha_nacimiento);
             if($validation === true){
                 $id = $this->model->create_user($nombre, $alias, $email, $genero, $descripcion, $fecha_nacimiento, $passwrd);
                 if($id == true){
@@ -32,7 +32,19 @@
                 ];
                 header("Location: ../registro-en-club/index.php");
             }
-            
+        }
+        public function login($email, $passwrd){
+            $validation = $this->helper->validateLogin($email, $passwrd);
+            if($validation === true){
+                $passwrd_hash = password_hash($passwrd, PASSWORD_DEFAULT);
+                $res = $this->model->login($email, $passwrd_hash);
+                if($res == false){
+                    return header('Location: ../ingreso/index.php');
+                }
+            }else{
+                $_SESSION['formError'] = $validation;
+                header('Location: ../ingreso/index.php');
+            }
         }
     }
 ?>

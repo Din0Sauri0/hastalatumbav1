@@ -27,6 +27,18 @@
             }
             
         }
+        public function login($email, $passwrd){
+            try{
+                $query = $this->PDO->prepare('SELECT * FROM usuarios WHERE email=:email AND passwrd=:passwrd');
+                $query->bindParam(':email', $email);
+                $query->bindParam(':passwrd', $passwrd);
+                $query->execute();
+                $res = $query->fetch(PDO::FETCH_OBJ);
+                return $res;
+            }catch(PDOException $err){
+                return $err->getMessage();
+            }
+        }
 
     }
 ?>
