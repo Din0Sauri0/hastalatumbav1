@@ -28,7 +28,6 @@
                     "genero" => $genero,
                     "descripcion" => $descripcion,
                     "fecha_nacimiento" => $fecha_nacimiento,
-                    "passwrd" => $passwrd
                 ];
                 header("Location: ../registro-en-club/index.php");
             }

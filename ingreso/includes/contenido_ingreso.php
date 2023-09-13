@@ -8,18 +8,6 @@
                     <form action="./login.php" method="POST" class="sign__form">
 
                         <i class="fas fa-sign-in-alt sign__logo"></i>
-                        <!-- <?php
-                        if (!empty($_SESSION['success'])) {
-                        ?>
-                            <div class="sign__group bg-success p-3 rounded-4 text-center">
-                                <strong>
-                                <?php
-                                echo $_SESSION['success'];
-                            }
-                                ?>
-                                </strong>
-                            </div> -->
-
                             <div class="sign__group">
                                 <div class="sign__group">
                                     <input type="text" class="sign__input <?php if(isset($_SESSION['formError']['email'])){echo('border-danger bg-danger bg-opacity-10');} ?>" name="email" placeholder="Email">

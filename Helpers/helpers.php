@@ -60,7 +60,7 @@ class Helpers
             $messageError['passwrd'] = 'Este campo es obligatorio';
         }
         if(strlen($passwrd) > 12 || strlen($passwrd) < 8){
-            $messageError['password'] = 'La contraseña debe tener entre 8 y 12 caracteres.';
+            $messageError['passwrd'] = 'La contraseña debe tener entre 8 y 12 caracteres.';
         }
         if(count($messageError) >= 1){
             return $messageError;
