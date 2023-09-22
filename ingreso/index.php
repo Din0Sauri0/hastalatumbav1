@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include('includes/variables_ingreso.php');
 ?>
 

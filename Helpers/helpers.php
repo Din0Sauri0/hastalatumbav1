@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Helpers
 {
     private $PDO;
@@ -53,6 +54,7 @@ class Helpers
         }
     }
     public function validateLogin($email, $passwrd){
+        $messageError = array();
         if(strlen($email) == 0){
             $messageError['email'] = 'Este campo es obligatorio';
         }
@@ -67,6 +69,5 @@ class Helpers
         }else{
             return true;
         }
-        
     }
 }

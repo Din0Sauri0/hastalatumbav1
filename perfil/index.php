@@ -1,4 +1,7 @@
-<?php include('includes/variables_perfil.php') ?>
+<?php
+session_start();
+include('includes/variables_perfil.php'); 
+?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="es">

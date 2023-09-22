@@ -1,5 +1,4 @@
 <?php
-    session_start();
     class usuarioController{
         private $model;
         private $helper;
@@ -34,16 +33,28 @@
         }
         public function login($email, $passwrd){
             $validation = $this->helper->validateLogin($email, $passwrd);
-            if($validation === true){
-                $passwrd_hash = password_hash($passwrd, PASSWORD_DEFAULT);
-                $res = $this->model->login($email, $passwrd_hash);
-                if($res == false){
-                    return header('Location: ../ingreso/index.php');
+            if($validation){
+                $res = $this->model->login($email, $passwrd);
+                if($res){
+                    header('Location: ../perfil/index.php');
+                }else{
+                    return $res;
+                    header('Location: ../ingreso/index.php');
                 }
             }else{
                 $_SESSION['formError'] = $validation;
                 header('Location: ../ingreso/index.php');
             }
         }
+        public function update_user($alias, $genero, $descripcion, $email, $fecha_nacimiento){
+            $res = $this->model->update_user($alias, $genero, $descripcion, $email, $fecha_nacimiento);
+            if($res){
+                $_SESSION['user_information'] = $this->model->get_data_user($_SESSION['user_information']['id_usuario']);
+                header("Location: ../perfil/index.php");
+            }else{
+                header("Location: ../registro-en-club/index.php");
+            }
+        }
+        
     }
 ?>
