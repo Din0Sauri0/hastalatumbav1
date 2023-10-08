@@ -479,7 +479,7 @@ var_dump($confeciones);
                                                 </div>
                                                 <div class="speaker__list-content-inner">
                                                     <div class="speaker__list-content">
-                                                        <h5 class="speaker__author-title"><a href=""><?php echo $confecion['titulo'] ?></a></h5>
+                                                        <h5 class="speaker__author-title"><a href="../mausoleo-de-historias/la-mujer-era-un-lobo/index.php"><?php echo $confecion['titulo'] ?></a></h5>
                                                         <span class="speaker__author-info"><?php echo $_SESSION['user_information']['nombre'] ?></span>
                                                     </div>
 
