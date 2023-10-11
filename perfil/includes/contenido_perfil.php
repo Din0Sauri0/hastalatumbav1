@@ -3,7 +3,7 @@ include 'variables_perfil.php';
 require_once('../Controllers/confecionController.php');
 $confeciones = new confecionController();
 $confeciones = $confeciones->confeciones($_SESSION['user_information']['id_usuario']);
-var_dump($confeciones);
+
 ?>
 <div id="preloader">
     <div class="sk-three-bounce">
